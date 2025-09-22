@@ -1,5 +1,7 @@
 export function Footer() {
     return (
-        <footer>Copyright Mexican Food 2024</footer>
+        <footer>
+            <p>Copyright Mexican Food 2024</p>
+        </footer>
         );
 }
