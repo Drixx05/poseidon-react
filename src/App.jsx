@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/esm/Button";
 
 function App() {
 	const dishes = [
@@ -15,7 +16,7 @@ function App() {
 			image:
 				"https://cdn.pixabay.com/photo/2016/08/23/08/53/tacos-1613795_960_720.jpg",
 			isNew: true,
-			stock: 12
+			stock: 12,
 		},
 		{
 			name: "Enchiladas",
@@ -23,7 +24,7 @@ function App() {
 			image:
 				"https://cdn.pixabay.com/photo/2014/01/14/22/13/mexican-245240_960_720.jpg",
 			isNew: false,
-			stock: 0
+			stock: 0,
 		},
 		{
 			name: "Mole poblano",
@@ -31,10 +32,16 @@ function App() {
 			image:
 				"https://cdn.pixabay.com/photo/2021/02/04/03/57/mole-5980185_960_720.jpg",
 			isNew: false,
-			stock: 5
+			stock: 5,
 		},
 	];
+
 	const filteredDishes = dishes.filter((dish) => dish.stock > 0);
+
+	const handleClick = (message) => {
+		alert(message);
+	};
+
 	return (
 		<>
 			<Header />
@@ -43,7 +50,12 @@ function App() {
 					<Row>
 						{filteredDishes.map((dish, index) => (
 							<Col md={4} key={index}>
-								<Dish {...dish} />
+								<Dish {...dish} handleClick={handleClick} />
+								<Button
+									onClick={() =>
+										handleClick(`Le plat ${dish.name} a été ajouté au panier`)}>
+									Ajoutez au panier
+								</Button>
 							</Col>
 						))}
 					</Row>

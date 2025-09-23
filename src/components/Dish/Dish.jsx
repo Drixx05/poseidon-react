@@ -2,6 +2,8 @@ import Card from "react-bootstrap/Card";
 import "./Dish.scss";
 import Badge from "react-bootstrap/Badge";
 
+
+
 export const Dish = ({ name, price, image, isNew }) => {
 	return (
 		<Card>
@@ -10,6 +12,7 @@ export const Dish = ({ name, price, image, isNew }) => {
 			<Card.Body>
 				<Card.Title>{name}</Card.Title>
 				<Card.Text>{price} €</Card.Text>
+
 			</Card.Body>
 		</Card>
 	);
