@@ -51,7 +51,7 @@ function App() {
 			<main>
 				<Container>
 					<Button className="mb-3" onClick={() => setShowNewOnly(!showNewOnly)}>
-						Nouveautés uniquement
+						{showNewOnly ? "Voir tous les plats" : "Nouveautés uniquement"}
 					</Button>
 					<Row>
 						{filteredDishes.map((dish, index) => (
