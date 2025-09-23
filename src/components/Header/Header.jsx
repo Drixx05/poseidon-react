@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import "./header.scss";
 import logo from "../../assets/images/logo.png";
 
-export function Header() {
+export function Header({ cartCount }) {
 	return (
 		<header>
 			<Navbar className="bg-body-tertiary">
@@ -21,6 +21,7 @@ export function Header() {
 						className="justify-content-end"
 					>
 						<Nav.Link href="/">Accueil</Nav.Link>
+						<Navbar.Text className="ms-3">Panier {cartCount}</Navbar.Text>
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>
