@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./header.scss";
+import logo from "../../assets/images/logo.png";
 
 export function Header() {
 	return (
@@ -10,7 +11,7 @@ export function Header() {
 				<Container>
 					<Navbar.Brand href="/">
 						<img
-							src="https://cdn.pixabay.com/photo/2018/03/26/14/18/man-3262834_960_720.png"
+							src={logo}
 							alt="Une image de personnage mexicain avec un grand sombrero coloré et une guitare"
 						/>
 					</Navbar.Brand>
