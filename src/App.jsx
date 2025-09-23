@@ -47,7 +47,7 @@ function App() {
 	});
 
 	const addToCart = () => {
-		setCartCount(cartCount + 1);
+		setCartCount(previousCartCount => previousCartCount + 1);
 	};
 
 	return (
