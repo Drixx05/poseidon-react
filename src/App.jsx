@@ -50,7 +50,7 @@ function App() {
 					<Row>
 						{filteredDishes.map((dish, index) => (
 							<Col md={4} key={index}>
-								<Dish {...dish} handleClick={handleClick} />
+								<Dish {...dish} />
 								<Button
 									onClick={() =>
 										handleClick(`Le plat ${dish.name} a été ajouté au panier`)}>
