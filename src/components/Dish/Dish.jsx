@@ -1,8 +1,7 @@
 import Card from "react-bootstrap/Card";
 import "./Dish.scss";
 import Badge from "react-bootstrap/Badge";
-
-
+import Button from "react-bootstrap/Button";
 
 export const Dish = ({ name, price, image, isNew }) => {
 	return (
@@ -12,7 +11,11 @@ export const Dish = ({ name, price, image, isNew }) => {
 			<Card.Body>
 				<Card.Title>{name}</Card.Title>
 				<Card.Text>{price} €</Card.Text>
-
+								<Button 
+									onClick={() =>
+										alert(`Le plat ${name} a été ajouté au panier`)}>
+									Ajoutez au panier
+								</Button>
 			</Card.Body>
 		</Card>
 	);

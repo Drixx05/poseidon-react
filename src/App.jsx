@@ -4,11 +4,14 @@ import { Header } from "./components/header/header";
 import "./assets/styles/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/esm/Button";
+import { useState } from "react";
 
 function App() {
+	const [showNewOnly, setShowNewOnly] = useState(false);
+
 	const dishes = [
 		{
 			name: "Tacos à l’unité",
@@ -36,26 +39,24 @@ function App() {
 		},
 	];
 
-	const filteredDishes = dishes.filter((dish) => dish.stock > 0);
-
-	const handleClick = (message) => {
-		alert(message);
-	};
+	const filteredDishes = dishes.filter((dish) => {
+		if (dish.stock === 0) return false;
+		if (showNewOnly && !dish.isNew) return false;
+		return true;
+	});
 
 	return (
 		<>
 			<Header />
 			<main>
 				<Container>
+					<Button className="mb-3" onClick={() => setShowNewOnly(!showNewOnly)}>
+						Nouveautés uniquement
+					</Button>
 					<Row>
 						{filteredDishes.map((dish, index) => (
 							<Col md={4} key={index}>
 								<Dish {...dish} />
-								<Button
-									onClick={() =>
-										handleClick(`Le plat ${dish.name} a été ajouté au panier`)}>
-									Ajoutez au panier
-								</Button>
 							</Col>
 						))}
 					</Row>
