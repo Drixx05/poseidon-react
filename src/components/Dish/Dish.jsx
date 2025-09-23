@@ -14,3 +14,4 @@ export const Dish = ({ name, price, image, isNew }) => {
 		</Card>
 	);
 };
+
