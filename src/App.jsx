@@ -1,6 +1,8 @@
 import { Dish } from "./components/Dish/Dish";
 import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/header/header";
+import "./assets/styles/App.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -9,7 +11,7 @@ function App() {
 	return (
 		<>
 			<Header />
-			<main className="py-5">
+			<main>
 				<Container>
 					<Row>
 						<Col md={4}>
