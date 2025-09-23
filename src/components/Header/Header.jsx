@@ -8,7 +8,7 @@ export function Header() {
 		<header>
 			<Navbar className="bg-body-tertiary">
 				<Container>
-					<Navbar.Brand href="/" className="logo">
+					<Navbar.Brand href="/">
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<img
 							src="https://cdn.pixabay.com/photo/2018/03/26/14/18/man-3262834_960_720.png"
