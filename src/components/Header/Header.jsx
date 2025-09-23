@@ -14,8 +14,11 @@ export function Header() {
 							alt="Une image de personnage mexicain avec un grand sombrero coloré et une guitare"
 						/>
 					</Navbar.Brand>
-					<Navbar.Toggle aria-controls="basic-navbar-nav"/>
-					<Navbar.Collapse className="justify-content-end">
+					<Navbar.Toggle aria-controls="basic-navbar-nav" />
+					<Navbar.Collapse
+						id="basic-navbar-nav"
+						className="justify-content-end"
+					>
 						<Nav.Link href="/">Accueil</Nav.Link>
 					</Navbar.Collapse>
 				</Container>
