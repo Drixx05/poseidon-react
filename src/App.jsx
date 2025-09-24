@@ -8,11 +8,11 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState, useRef, useEffect, useContext } from "react";
-import { CartContext } from "./context/CartContext";
+import { useCart } from "./hooks/useCart";
 
 function App() {
 	const [showNewOnly, setShowNewOnly] = useState(false);
-	const { cartCount } = useContext(CartContext);
+	const { cartCount } = useCart();
 	const prevCartCountRef = useRef(cartCount);
 
 	useEffect(() => {

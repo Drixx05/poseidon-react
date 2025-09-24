@@ -3,11 +3,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./header.scss";
 import logo from "../../assets/images/logo.png";
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { useCart } from "../../hooks/useCart";
 
 export function Header() {
-	const { cartCount } = useContext(CartContext);
+	const { cartCount } = useCart();
+
 	return (
 		<header>
 			<Navbar className="bg-body-tertiary">
@@ -24,7 +24,7 @@ export function Header() {
 						className="justify-content-end"
 					>
 						<Nav.Link href="/">Accueil</Nav.Link>
-						<Navbar.Text className="ms-3">Panier {cartCount}</Navbar.Text>
+						<Navbar.Text className="ms-3">Panier ({cartCount})</Navbar.Text>
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>
