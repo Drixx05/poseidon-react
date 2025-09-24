@@ -10,25 +10,14 @@ import Col from "react-bootstrap/Col";
 import { useState, useRef, useEffect, useContext } from "react";
 import { CartContext } from "./context/CartContext";
 
-const CartAlert = () => {
+function App() {
+	const [showNewOnly, setShowNewOnly] = useState(false);
 	const { cartCount } = useContext(CartContext);
 	const prevCartCountRef = useRef(cartCount);
 
 	useEffect(() => {
 		prevCartCountRef.current = cartCount;
-	});
-
-	return (
-		<div className="mb-3 justify-content-center">
-			<p>
-				Le panier est passé de {prevCartCountRef.current} à {cartCount}
-			</p>
-		</div>
-	);
-};
-
-function App() {
-	const [showNewOnly, setShowNewOnly] = useState(false);
+	}, [cartCount]);
 
 	const dishes = [
 		{
@@ -67,6 +56,11 @@ function App() {
 		<>
 			<Header />
 			<main>
+				<div className="mb-3 d-flex justify-content-center">
+					<p>
+						Le panier est passé de {prevCartCountRef.current} à {cartCount}
+					</p>
+				</div>
 				<Container>
 					<Button className="mb-3" onClick={() => setShowNewOnly(!showNewOnly)}>
 						{showNewOnly ? "Voir tous les plats" : "Nouveautés uniquement"}
@@ -79,7 +73,6 @@ function App() {
 						))}
 					</Row>
 				</Container>
-				<CartAlert />
 			</main>
 			<Footer />
 		</>
