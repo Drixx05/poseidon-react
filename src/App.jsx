@@ -8,10 +8,12 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "./context/CartContext";
 
 function App() {
 	const [showNewOnly, setShowNewOnly] = useState(false);
-	const [cartCount, setCartCount] = useState(0);
+	const { cartCount, addToCart } = useContext(CartContext);
 
 	const dishes = [
 		{
@@ -45,10 +47,6 @@ function App() {
 		if (showNewOnly && !dish.isNew) return false;
 		return true;
 	});
-
-	const addToCart = () => {
-		setCartCount(previousCartCount => previousCartCount + 1);
-	};
 
 	return (
 		<>
