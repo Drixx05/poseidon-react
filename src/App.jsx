@@ -7,14 +7,32 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useState } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
+import { CartContext } from "./context/CartContext";
+
+const CartAlert = () => {
+	const { cartCount } = useContext(CartContext);
+	const prevCartCountRef = useRef(cartCount);
+
+	useEffect(() => {
+		prevCartCountRef.current = cartCount;
+	});
+
+	return (
+		<div className="mb-3 justify-content-center">
+			<p>
+				Le panier est passé de {prevCartCountRef.current} à {cartCount}
+			</p>
+		</div>
+	);
+};
 
 function App() {
 	const [showNewOnly, setShowNewOnly] = useState(false);
 
 	const dishes = [
 		{
-			name: "Tacos à l’unité",
+			name: "Tacos à l'unité",
 			price: 3,
 			image:
 				"https://cdn.pixabay.com/photo/2016/08/23/08/53/tacos-1613795_960_720.jpg",
@@ -61,6 +79,7 @@ function App() {
 						))}
 					</Row>
 				</Container>
+				<CartAlert />
 			</main>
 			<Footer />
 		</>
