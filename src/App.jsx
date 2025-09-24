@@ -50,7 +50,7 @@ function App() {
 
 	return (
 		<>
-			<Header cartCount={cartCount} />
+			<Header />
 			<main>
 				<Container>
 					<Button className="mb-3" onClick={() => setShowNewOnly(!showNewOnly)}>
@@ -59,7 +59,7 @@ function App() {
 					<Row>
 						{filteredDishes.map((dish, index) => (
 							<Col md={4} key={index}>
-								<Dish {...dish} addToCart={addToCart} />
+								<Dish {...dish} />
 							</Col>
 						))}
 					</Row>
